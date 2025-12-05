@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Sidebar from "../../../components/Sidebar";
+import { Sidebar } from "@/components/sidebar";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -26,7 +26,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar />
+      <Sidebar visible={true} />
       <main className="flex-1 flex items-center justify-center bg-gray-100">
         <form
           onSubmit={handleLogin}
