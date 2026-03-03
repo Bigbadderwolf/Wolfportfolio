@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface SkillCardProps {
   title: string;
@@ -43,9 +44,11 @@ export default function SkillCard({ title, color, image, rotatingTitles, variant
             {/* Left: Icon + Static Title */}
             <div className="flex items-center gap-4 flex-shrink-0">
               {image && (
-                <img
+                <Image
                   src={image}
                   alt={title}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 object-contain opacity-90 group-hover:opacity-100 transition duration-300 flex-shrink-0"
                 />
               )}
@@ -82,9 +85,11 @@ export default function SkillCard({ title, color, image, rotatingTitles, variant
         ) : (
           <>
             {image && (
-              <img
+              <Image
                 src={image}
                 alt={title}
+                width={64}
+                height={64}
                 className="w-16 h-16 object-contain mb-3 opacity-90 group-hover:opacity-100 transition duration-300"
               />
             )}

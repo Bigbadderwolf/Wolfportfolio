@@ -1,22 +1,19 @@
-import CVSection from "@/components/CVSection";
-
-
 export default function About() {
   return (
     <section id="about" className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="max-w-4xl mx-auto text-center px-6">
         <h2 className="text-4xl font-bold mb-6">About Me</h2>
         <p className="text-lg text-gray-300 leading-relaxed mb-8">
-          I’m <span className="font-semibold text-white">Elvis Nyambati Orina</span>, a passionate 
-          <span className="text-blue-400"> BSc. Mathematics and Computer Science </span> student at 
-          <span className="text-white"> Kenyatta University</span>. I specialize in developing 
-          secure, data-driven systems — from <span className="text-blue-400">AI-powered trading apps</span> 
+          I’m <span className="font-semibold text-white">Elvis Nyambati Orina</span>, a passionate
+          <span className="text-blue-400"> BSc. Mathematics and Computer Science </span> student at
+          <span className="text-white"> Kenyatta University</span>. I specialize in developing
+          secure, data-driven systems — from <span className="text-blue-400">AI-powered trading apps</span>
           to <span className="text-blue-400">cybersecurity simulations</span>.
         </p>
 
         <p className="text-gray-400 mb-8">
-          With a background in <span className="font-semibold text-white">networking (CCNA)</span>, 
-          <span className="text-white"> full-stack development</span>, and <span className="text-white">ethical hacking</span>, 
+          With a background in <span className="font-semibold text-white">networking (CCNA)</span>,
+          <span className="text-white"> full-stack development</span>, and <span className="text-white">ethical hacking</span>,
           I blend analytical problem-solving with creative design to build solutions that are both functional and secure.
         </p>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   SiPython,
@@ -9,7 +9,7 @@ import {
   SiJavascript,
   SiTensorflow,
 } from 'react-icons/si';
-import { ChevronLeft, Menu } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 /* ================= TYPES ================= */
 
@@ -33,6 +33,18 @@ interface Bubble {
 
 /* ================= BUBBLE ================= */
 
+interface BubbleProps {
+  bubble: Bubble;
+  centerX: number;
+  centerY: number;
+  orbitRadius: number;
+  windowWidth: number;
+  windowHeight: number;
+  phaseRef: React.MutableRefObject<Phase>;
+  onUpdate: (id: number, pos: { x: number; y: number }) => void;
+  children: React.ReactNode;
+}
+
 const InteractiveBubble = ({
   bubble,
   centerX,
@@ -43,7 +55,7 @@ const InteractiveBubble = ({
   phaseRef,
   onUpdate,
   children,
-}: any) => {
+}: BubbleProps) => {
   const { baseAngle } = bubble;
 
   const [pos, setPos] = useState({
@@ -92,8 +104,8 @@ const InteractiveBubble = ({
 
       if (phase === 'bounce') {
         setPos(p => {
-          let nx = p.x + vx.current;
-          let ny = p.y + vy.current;
+          const nx = p.x + vx.current;
+          const ny = p.y + vy.current;
           if (nx <= 0 || nx >= windowWidth) vx.current *= -1;
           if (ny <= 0 || ny >= windowHeight) vy.current *= -1;
           return { x: nx, y: ny };
@@ -147,7 +159,7 @@ const HomePage: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [w, setW] = useState(0);
   const [h, setH] = useState(0);
-  const [positions, setPositions] = useState<Record<number, any>>({});
+  const [positions, setPositions] = useState<Record<number, { x: number; y: number }>>({});
   const [textIndex, setTextIndex] = useState(0);
 
   const phaseRef = useRef<Phase>('static');
@@ -172,7 +184,7 @@ const HomePage: React.FC = () => {
       setTextIndex(p => (p + 1) % texts.length);
     }, 2800);
     return () => clearInterval(i);
-  }, []);
+  }, [texts.length]);
 
   const bubbles: Bubble[] = Array.from({ length: 6 }).map((_, i) => {
     const a = (i / 6) * Math.PI * 2;
@@ -229,9 +241,9 @@ const HomePage: React.FC = () => {
     loop();
   }, []);
 
-  const updatePos = (id: number, pos: any) => {
+  const updatePos = useCallback((id: number, pos: { x: number; y: number }) => {
     setPositions(p => ({ ...p, [id]: pos }));
-  };
+  }, []);
 
   if (!mounted) return null;
 

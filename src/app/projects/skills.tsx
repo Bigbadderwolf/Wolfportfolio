@@ -1,9 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 
+interface Project {
+  id: number;
+  title: string;
+  short_description: string;
+  demo_link?: string;
+}
+
 export default function SkillProjects({ params }: { params: { skill: string } }) {
   const { skill } = params;
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/projects/${skill}/`)
@@ -19,7 +26,7 @@ export default function SkillProjects({ params }: { params: { skill: string } })
         <p>No projects found.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projects.map((proj) => (
+          {projects.map((proj: Project) => (
             <div key={proj.id} className="p-6 bg-gray-800 rounded-xl shadow-lg">
               <h2 className="text-xl font-semibold mb-2">{proj.title}</h2>
               <p className="text-gray-300 text-sm mb-3">{proj.short_description}</p>
