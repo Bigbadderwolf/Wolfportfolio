@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface Project {
   id: number;
@@ -8,15 +9,18 @@ interface Project {
   demo_link?: string;
 }
 
-export default function SkillProjects({ params }: { params: { skill: string } }) {
-  const { skill } = params;
+export default function SkillProjects() {
+  const searchParams = useSearchParams();
+  const skill = searchParams.get('skill') || '';
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/projects/${skill}/`)
-      .then((res) => res.json())
-      .then((data) => setProjects(data))
-      .catch((err) => console.error(err));
+    if (skill) {
+      fetch(`http://127.0.0.1:8000/api/projects/${skill}/`)
+        .then((res) => res.json())
+        .then((data) => setProjects(data))
+        .catch((err) => console.error(err));
+    }
   }, [skill]);
 
   return (

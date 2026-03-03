@@ -25,14 +25,15 @@ const skillTitles: Record<AllowedSkill, string> = {
     ai: "AI Engineering",
 };
 
-export default function SkillProjectsPage({ params }: { params: { skill: string } }) {
-    const skill = params.skill as AllowedSkill;
+export default async function SkillProjectsPage({ params }: { params: Promise<{ skill: string }> }) {
+    const { skill } = await params;
+    const allowedSkill = skill as AllowedSkill;
 
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const isValidSkill = useMemo(() => allowedSkills.includes(skill), [skill]);
+    const isValidSkill = useMemo(() => allowedSkills.includes(allowedSkill), [allowedSkill]);
 
     useEffect(() => {
         if (!isValidSkill) {
@@ -61,7 +62,7 @@ export default function SkillProjectsPage({ params }: { params: { skill: string 
         <div className="min-h-screen bg-gray-950 text-white p-10">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center justify-between gap-4 mb-8">
-                    <h1 className="text-3xl font-bold">{isValidSkill ? skillTitles[skill] : "Projects"}</h1>
+                    <h1 className="text-3xl font-bold">{isValidSkill ? skillTitles[allowedSkill] : "Projects"}</h1>
                     <Link href="/projects" className="text-cyan-400 hover:underline">
                         Back
                     </Link>
