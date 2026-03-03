@@ -9,6 +9,7 @@ import {
   SiJavascript,
   SiTensorflow,
 } from 'react-icons/si';
+import { ChevronLeft, Menu } from 'lucide-react';
 
 /* ================= TYPES ================= */
 
@@ -155,15 +156,15 @@ const HomePage: React.FC = () => {
   /* ROTATING TITLES */
   const texts = [
     { text: 'SOC Analyst', icon: <SiPython size={40} /> },
-    { text: 'Cyber Incident Response Specialist', icon: <SiNodedotjs size={40} /> },
+    { text: 'DFIR Specialist', icon: <SiNodedotjs size={40} /> },
     { text: 'Full Stack Developer', icon: <SiReact size={40} /> },
     { text: 'DevOps Engineer', icon: <SiJavascript size={40} /> },
     { text: 'Data Scientist', icon: <SiTensorflow size={40} /> },
-    { text: 'LLM Engineer', icon: <SiJavascript size={40} /> },
+    { text: 'LLM/AI Engineer', icon: <SiJavascript size={40} /> },
     { text: 'Audio Engineer', icon: <SiPython size={40} /> },
     { text: 'Music Producer', icon: <SiReact size={40} /> },
     { text: 'Quant and Financial Analyst', icon: <SiPython size={40} /> },
-    { text: 'Forex and Crypto Trader', icon: <SiJavascript size={40} /> },
+    { text: 'Forex Crypto Trader', icon: <SiJavascript size={40} /> },
   ];
 
   useEffect(() => {
@@ -315,6 +316,75 @@ const HomePage: React.FC = () => {
       >
         Welcome to WolfPortfolio
       </motion.h1>
+
+      {/* SIDEBAR SCROLL INDICATOR */}
+      <motion.div
+        className="absolute left-8 top-1/2 transform -translate-y-1/2 z-30 flex flex-col items-center gap-3"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
+      >
+        {/* Arrow pointing to sidebar */}
+        <motion.div
+          animate={{
+            x: [0, 8, 0],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="text-cyan-400"
+        >
+          <ChevronLeft size={24} />
+        </motion.div>
+
+        {/* Mini statement text */}
+        <div className="text-left">
+          <motion.p
+            className="text-cyan-300 text-sm font-medium mb-1"
+            animate={{
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            Scroll here
+          </motion.p>
+          <motion.p
+            className="text-gray-400 text-xs"
+            animate={{
+              opacity: [0.5, 0.8, 0.5],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 0.5,
+            }}
+          >
+            for sidebar
+          </motion.p>
+        </div>
+
+        {/* Decorative line */}
+        <motion.div
+          className="w-px h-16 bg-gradient-to-b from-cyan-400 to-transparent"
+          animate={{
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
+        />
+      </motion.div>
     </div>
   );
 };

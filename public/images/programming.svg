@@ -1,0 +1,39 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Code editor background -->
+  <rect x="8" y="12" width="32" height="24" rx="2" fill="url(#gradient)" opacity="0.1"/>
+  <rect x="8" y="12" width="32" height="24" rx="2" stroke="url(#gradient)" stroke-width="2"/>
+  
+  <!-- Code brackets -->
+  <path d="M16 20L12 24L16 28" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M32 20L36 24L32 28" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Forward slash -->
+  <path d="M26 18L22 30" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Code lines -->
+  <rect x="12" y="16" width="8" height="1" rx="0.5" fill="url(#gradient)" opacity="0.6"/>
+  <rect x="28" y="16" width="6" height="1" rx="0.5" fill="url(#gradient)" opacity="0.6"/>
+  <rect x="12" y="32" width="10" height="1" rx="0.5" fill="url(#gradient)" opacity="0.6"/>
+  <rect x="26" y="32" width="8" height="1" rx="0.5" fill="url(#gradient)" opacity="0.6"/>
+  
+  <!-- Terminal cursor -->
+  <rect x="20" y="23" width="1" height="2" fill="url(#gradient)">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Gear/cog -->
+  <circle cx="38" cy="14" r="3" fill="none" stroke="url(#gradient)" stroke-width="1" opacity="0.7"/>
+  <circle cx="38" cy="14" r="1" fill="url(#gradient)" opacity="0.8"/>
+  <path d="M38 11L38 10M38 17L38 18M35 14L34 14M41 14L42 14M36 11L35 10M40 11L41 10M36 17L35 18M40 17L41 18" stroke="url(#gradient)" stroke-width="0.5" opacity="0.6"/>
+  
+  <!-- Binary code -->
+  <text x="12" y="20" font-family="monospace" font-size="4" fill="url(#gradient)" opacity="0.4">010</text>
+  <text x="32" y="28" font-family="monospace" font-size="4" fill="url(#gradient)" opacity="0.4">101</text>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

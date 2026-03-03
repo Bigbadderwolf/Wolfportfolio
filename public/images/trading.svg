@@ -1,0 +1,29 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chart background -->
+  <rect x="8" y="12" width="32" height="24" rx="2" fill="url(#gradient)" opacity="0.1"/>
+  <rect x="8" y="12" width="32" height="24" rx="2" stroke="url(#gradient)" stroke-width="2"/>
+  
+  <!-- Trending up chart -->
+  <path d="M12 32L18 26L24 28L32 20L36 24" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Chart points -->
+  <circle cx="12" cy="32" r="2" fill="url(#gradient)"/>
+  <circle cx="18" cy="26" r="2" fill="url(#gradient)"/>
+  <circle cx="24" cy="28" r="2" fill="url(#gradient)"/>
+  <circle cx="32" cy="20" r="2" fill="url(#gradient)"/>
+  <circle cx="36" cy="24" r="2" fill="url(#gradient)"/>
+  
+  <!-- Dollar sign -->
+  <path d="M24 14V18M24 22V26" stroke="url(#gradient)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M21 16C21 15 22 14 24 14C26 14 27 15 27 16C27 17 26 18 24 18C22 18 21 19 21 20C21 21 22 22 24 22C26 22 27 21 27 20" stroke="url(#gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Grid lines -->
+  <path d="M8 18L40 18M8 24L40 24M8 30L40 30M16 12L16 36M24 12L24 36M32 12L32 36" stroke="url(#gradient)" stroke-width="0.5" opacity="0.3"/>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

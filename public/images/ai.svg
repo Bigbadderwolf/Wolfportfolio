@@ -1,0 +1,30 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain outline -->
+  <path d="M24 8C18 8 14 12 14 18C14 20 14.5 22 15.5 23.5C12 24 10 26 10 29C10 32 12 34 15 34.5C15.5 37 18 39 21 39C22.5 39 23.5 38.5 24 38C24.5 38.5 25.5 39 27 39C30 39 32.5 37 33 34.5C36 34 38 32 38 29C38 26 36 24 32.5 23.5C33.5 22 34 20 34 18C34 12 30 8 24 8Z" fill="url(#gradient)" opacity="0.15"/>
+  <path d="M24 8C18 8 14 12 14 18C14 20 14.5 22 15.5 23.5C12 24 10 26 10 29C10 32 12 34 15 34.5C15.5 37 18 39 21 39C22.5 39 23.5 38.5 24 38C24.5 38.5 25.5 39 27 39C30 39 32.5 37 33 34.5C36 34 38 32 38 29C38 26 36 24 32.5 23.5C33.5 22 34 20 34 18C34 12 30 8 24 8Z" stroke="url(#gradient)" stroke-width="2"/>
+  
+  <!-- Neural network nodes -->
+  <circle cx="18" cy="18" r="2" fill="url(#gradient)"/>
+  <circle cx="30" cy="18" r="2" fill="url(#gradient)"/>
+  <circle cx="24" cy="24" r="2" fill="url(#gradient)"/>
+  <circle cx="18" cy="30" r="2" fill="url(#gradient)"/>
+  <circle cx="30" cy="30" r="2" fill="url(#gradient)"/>
+  
+  <!-- Neural connections -->
+  <path d="M18 18L24 24L30 18M18 18L18 30M30 18L30 30M18 30L24 24L30 30" stroke="url(#gradient)" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Circuit patterns -->
+  <path d="M12 12L14 12M34 12L36 12M12 36L14 36M34 36L36 36" stroke="url(#gradient)" stroke-width="0.5" opacity="0.4"/>
+  
+  <!-- AI sparkles -->
+  <path d="M20 14L21 15L22 14L21 13Z" fill="url(#gradient)" opacity="0.8"/>
+  <path d="M26 14L27 15L28 14L27 13Z" fill="url(#gradient)" opacity="0.8"/>
+  <path d="M23 32L24 33L25 32L24 31Z" fill="url(#gradient)" opacity="0.8"/>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
