@@ -25,44 +25,44 @@ const skillTitles: Record<AllowedSkill, string> = {
     ai: "AI Engineering",
 };
 
-export default async function SkillProjectsPage({ params }: { params: Promise<{ skill: string }> }) {
-    const { skill } = await params;
-    const allowedSkill = skill as AllowedSkill;
-
+export default function SkillProjectsPage({ params }: { params: Promise<{ skill: string }> }) {
+    const [skill, setSkill] = useState<string>('');
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const isValidSkill = useMemo(() => allowedSkills.includes(allowedSkill), [allowedSkill]);
-
     useEffect(() => {
-        if (!isValidSkill) {
-            setLoading(false);
-            setProjects([]);
-            setError("Unknown project category.");
-            return;
-        }
+        params.then(p => {
+            const skillValue = p.skill;
+            const allowedSkill = skillValue as AllowedSkill;
+            setSkill(skillValue);
 
-        const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+            const isValidSkill = allowedSkills.includes(allowedSkill);
 
-        setLoading(true);
-        setError(null);
+            if (!isValidSkill) {
+                setLoading(false);
+                setProjects([]);
+                setError("Unknown project category.");
+                return;
+            }
 
-        fetch(`${apiBase}/api/${skill}/`)
-            .then((res) => {
-                if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-                return res.json();
-            })
-            .then((data) => setProjects(Array.isArray(data) ? data : []))
-            .catch((err) => setError(err instanceof Error ? err.message : "Failed to load projects."))
-            .finally(() => setLoading(false));
-    }, [isValidSkill, skill]);
+            const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+            fetch(`${apiBase}/api/projects/${skillValue}/`)
+                .then((res) => {
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return res.json();
+                })
+                .then((data) => setProjects(Array.isArray(data) ? data : []))
+                .catch((err) => setError(err instanceof Error ? err.message : "Failed to load projects."))
+                .finally(() => setLoading(false));
+        });
+    }, [params]);
 
     return (
         <div className="min-h-screen bg-gray-950 text-white p-10">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center justify-between gap-4 mb-8">
-                    <h1 className="text-3xl font-bold">{isValidSkill ? skillTitles[allowedSkill] : "Projects"}</h1>
+                    <h1 className="text-3xl font-bold">{allowedSkills.includes(skill as AllowedSkill) ? skillTitles[skill as AllowedSkill] : "Projects"}</h1>
                     <Link href="/projects" className="text-cyan-400 hover:underline">
                         Back
                     </Link>
